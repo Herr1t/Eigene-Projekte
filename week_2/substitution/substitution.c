@@ -9,8 +9,10 @@ char ALPHa[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
 int cypher(char key[])
 {
     //char ALPHb = tolower(ALPHa);
+    int c = 0;
     char input[26];
-    int lengthi = strlen(input);
+    char check[26] = {};
+    int lengthc = strlen(check);
     int lengthk = strlen(key);
     int lengtha = strlen(ALPHa);
     //printf("%i\n", lengthk);
@@ -22,20 +24,33 @@ int cypher(char key[])
     //printf("Test\n");
     for (int i = 0; i < lengthk; i++)
     {
-
     //printf("%i\n", lengtha);
         for (int l = 0; l < lengtha; l++)
         {
             if (key[i] == ALPHa[l])
             {
-                
-                printf("%c %c\n", key[i],ALPHa[l]);
+                check[l] = ALPHa[l];
+                //printf("%c %c\n", key[i],ALPHa[l]);
             }
         }
     }
 
+    for (int i = 0; i < lengtha; i++)
+    {
+        if (check[i] == ALPHa[i])
+        {
+            c++;
+        }
+    }
+
+    if (c != 26)
+    {
+        printf("Key must contain every Letter of the alphabet once.\n");
+        return 1;
+    }
     printf("plain text:\t");
     fgets(input, 100, stdin);
+    int lengthi = strlen(input);
 
     for (int i = 0; i < lengthi; i++)
     {
@@ -45,13 +60,15 @@ int cypher(char key[])
             //printf("%i\t", a);
             if (input[i] == ALPHa[a])
             {
-                input[i] = key[a];    
+                input[i] = key[a];
+                break;
             }
             else if (input[i] == ALPHb[a])
             {
                 input[i] = key[a];
-                input[i] =tolower(input[i]);
+                input[i] = tolower(input[i]);
                 //printf("%c\n", input[i]);
+                break;
             }
         }
     }
@@ -63,7 +80,7 @@ int main(int argc, char *argv[])
     if (argc == 2)
     {
         printf("Valid Key\n");
-        printf("%s\n", argv[1]);
+        //printf("%s\n", argv[1]);
         cypher(argv[1]);
     }
     else
