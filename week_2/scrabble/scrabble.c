@@ -9,13 +9,32 @@ int compute_score(char word[]);
 
 int main(void)
 {
-
     char word1[50];
     char word2[50];
     printf("Player 1: ");
     scanf("%s", &word1);
+    int po = strlen(word1);
+    for (int i = 0; i < po; i++)
+    {
+        while (isdigit(word1[i]))
+        {
+            printf("The word must consist of only Letters from the Alpahabet\nPlayer 1: ");
+            memset(word1, 0, sizeof(word1));
+            scanf("%s", &word1);
+        } 
+    }
     printf("Player 2: ");
     scanf("%s", &word2);
+    int pt = strlen(word2);
+    for (int i = 0; i < pt; i++)
+    {
+        while (isdigit(word2[i]))
+        {
+            printf("The word must consist of only Letters from the Alpahabet\nPlayer 2: ");
+            memset(word2, 0, sizeof(word2));
+            scanf("%s", &word2);
+        } 
+    }
 
     //compute_score(word1);
     //compute_score(word2);

@@ -23,6 +23,7 @@ void replace(char input[])
             }            
         }        
     }
+    
     /*printf("\n");
     for (int j = 0; j < length1; j++)
     {
@@ -40,6 +41,16 @@ int main(int argc, char *argv[])
     char input[10];
     if (argc == 2)
     {
+        int t = strlen(argv[1]);
+        for (int i = 0; i < t; i++)
+        {
+            if (isdigit(argv[1][i]))
+            {
+                printf("No Numbers!\n");
+                return 1;
+            }
+            
+        }
         printf("Valid Input\n");
         //printf("%s\n", argv[1]);
         replace(argv[1]);

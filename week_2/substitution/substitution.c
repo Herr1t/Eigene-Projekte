@@ -1,6 +1,5 @@
 #include <ctype.h>
 #include <string.h>
-#include <stdlib.h>
 #include <stdio.h>
 
 char ALPHb[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
@@ -48,6 +47,7 @@ int cypher(char key[])
         printf("Key must contain every Letter of the alphabet once.\n");
         return 1;
     }
+
     printf("plain text:\t");
     fgets(input, 100, stdin);
     int lengthi = strlen(input);
@@ -79,6 +79,16 @@ int main(int argc, char *argv[])
 {
     if (argc == 2)
     {
+        int t = strlen(argv[1]);
+        for (int i = 0; i < t; i++)
+        {
+            if (isdigit(argv[1][i]))
+            {
+                printf("Key must contain of onl Letters from the Alphabet:\n");
+                return 1;
+            }
+            
+        }
         printf("Valid Key\n");
         //printf("%s\n", argv[1]);
         cypher(argv[1]);
