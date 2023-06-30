@@ -10,10 +10,10 @@ while True:
         continue
     if fuel > 100:
         continue
-    elif fuel == 100:
+    elif fuel >= 99:
         print("F")
         break
-    elif fuel == 0:
+    elif fuel <= 1:
         print("E")
         break
     else:
