@@ -5,7 +5,7 @@ while True:
     except(ValueError):
         continue
     try:
-        fuel = int(a/b * 100)
+        fuel = float(a/b * 100)
     except(ZeroDivisionError):
         continue
     if fuel > 100:
@@ -17,5 +17,5 @@ while True:
         print("E")
         break
     else:
-        print(str(fuel) + '%')
+        print(str(round((fuel))) + '%')
         break

@@ -1,3 +1,4 @@
+import sys
 menu = {
     "Baja Taco": 4.00,
     "Burrito": 7.50,
@@ -13,10 +14,13 @@ t = 0
 while True:
     try:
         i = input("Item: ")
-        if i in menu:
+        item = i.title()
+        if item in menu:
             #print(menu[i])
-            t = t + menu[i]
+            t = t + menu[item]
             print("Total: ${0:0.2f}".format(t))
-        continue
-    except(ValueError):
-        continue
+            continue
+    #except(ValueError):
+        #continue
+    except(EOFError):
+        sys.exit()

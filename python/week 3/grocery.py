@@ -29,4 +29,5 @@ while True:
             except(IndexError):
                 print(str(c) + " " + _)
                 break
-    break
+            break
+        break
