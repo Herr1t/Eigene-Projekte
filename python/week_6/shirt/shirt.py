@@ -1,7 +1,6 @@
 import sys
 from PIL import Image
-
-images = []
+from PIL import ImageOps
 
 def main():
     while True:
@@ -30,13 +29,11 @@ def main():
 
 
 def overlap(input, output):
-    for arg in sys.argv[1:]:
-        image = Image.open(arg)
-        images.append(image)
-
-    images[0].save(
-        "output.png", save_all=True, append_images=[images[1]]
-    )
+    image1 = Image.open(input)
+    image1 = ImageOps.fit(image1, (600, 600))
+    image2 = Image.open("shirt.png")
+    image1.paste(image2, (0,0), image2)
+    image1.save(output)
 
 
 if __name__ == '__main__':
